@@ -1,0 +1,79 @@
+<!--
+ * @Author: hy yinvia1018@163.com
+ * @Date: 2023-12-05 16:59:33
+ * @LastEditors: hy yinvia1018@163.com
+ * @LastEditTime: 2023-12-06 10:53:56
+ * @FilePath: \IFRAME-tree -使用本地的html\15_ok_2.html
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width =device-width, initial-scale=1.0">
+    <title>title</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <link rel="stylesheet" href="/src/assets/uui.css">
+    <style>
+        #input1 {
+            width: 250px;
+            height: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <!-- 使用 UInput 组件 -->
+        <u-input id="input1" v-model="input1.inputValue" :required="input1.required" :readonly="input1.readonly"
+            style="margin-top: 10px;"></u-input>
+        <!-- 显示输入的值 -->
+        <p>输入的值: {{ input1.inputValue}}</p>
+        <u-input id="input2" v-model="input2.inputValue" :required="input2.required"
+            :readonly="input2.isReadonly"></u-input>
+        <p>输入的值: {{ input2.inputValue}}</p>
+        <button @click="submitForm">Submit</button>
+    </div>
+</body>
+
+</html>
+<script type="module">
+    import UUI from '/src/assets/UUI.js'
+    const app = Vue.createApp({
+        data() {
+            return {
+                userName: 'hello',
+                input1: {
+                    inputValue: '',
+                    required: false,
+                    readonly: true
+                },
+                input2: {
+                    inputValue: '',
+                    required: false,
+                    readonly: false
+                },
+                input3: ''
+            }
+        },
+        methods: {
+            submitForm() {
+                var str = this.input2.inputValue
+                var num = parseInt(str)
+                num = num + 10
+                alert(num)
+            }
+        },
+        mounted() {
+            alert('欢迎进入页面')
+        },
+        beforeUnmounted() {
+        },
+        unmounted() {
+        },
+    });
+    app.use(UUI)
+    app.mount('#app');
+</script>

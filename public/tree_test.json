@@ -1,0 +1,16 @@
+{
+  "name": "Iframe",
+  "path": "/",
+  "fold": true,
+  "children": [
+    {
+      "name": "1_iframe",
+      "path": "/1.html",
+      "fold": false
+    },
+    {
+      "name": "2_iframe",
+      "path": "https://element-plus.org/images/element-plus-logo.svg"
+    }
+  ]
+}
